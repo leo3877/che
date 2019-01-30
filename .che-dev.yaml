@@ -13,13 +13,17 @@ items:
          limits:
            memory: 1536Mi
        volumeMounts:
-       -
-         mountPath: /projects
+       - mountPath: /projects
          name: projects
+       - mountPath: /home/user/.m2
+         name: maven
      volumes:
      - name: projects
        persistentVolumeClaim:
          claimName: projects
+     - name: maven
+        persistentVolumeClaim:
+          claimName: maven
  - apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
@@ -29,4 +33,14 @@ items:
       - ReadWriteOnce
      resources:
        requests:
-         storage: 1Gi
+         storage: 2Gi
+ - apiVersion: v1
+   kind: PersistentVolumeClaim
+   metadata:
+     name: maven
+   spec:
+     accessModes:
+      - ReadWriteOnce
+     resources:
+       requests:
+         storage: 3Gi
