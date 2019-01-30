@@ -22,7 +22,7 @@ items:
        persistentVolumeClaim:
          claimName: projects
      - name: maven
-        persistentVolumeClaim:
+       persistentVolumeClaim:
           claimName: maven
  - apiVersion: v1
    kind: PersistentVolumeClaim
