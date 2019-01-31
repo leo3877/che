@@ -40,6 +40,9 @@
           </div>
         </div>
       </che-list-header>
+      <div ng-if="!machineServersController.serversList.length" class="che-list-empty">
+        <span>There are no servers defined for this container.</span>
+      </div>
       <!-- Servers list-->
       <che-list class="machine-servers-list" flex
                 ng-if="machineServersController.serversList && machineServersController.serversList.length > 0">
